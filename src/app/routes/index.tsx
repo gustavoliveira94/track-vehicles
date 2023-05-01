@@ -1,11 +1,13 @@
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
+import { ListVehicles } from 'app/pages/ListVehicles';
 
 export const Router: React.FC = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/list-vehicles" element={<h1>Teste</h1>} />
-            </Routes>
-        </BrowserRouter>
-    )
-}
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/list-vehicles" element={<ListVehicles />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
