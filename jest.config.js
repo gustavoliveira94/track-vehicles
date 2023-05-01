@@ -11,12 +11,18 @@ module.exports = {
     ],
     transform: {
       '^.+\\.(ts|tsx)?$': 'ts-jest',
+      '^.+\\.(js|jsx)$': 'babel-jest',
     },
+    collectCoverageFrom: [
+      '!**/node_modules/**',
+    ],
     moduleNameMapper: {
       '^root(.*)$': '<rootDir>/src$1',
       '^app(.*)$': '<rootDir>/src/app$1',
       '^core(.*)$': '<rootDir>/src/core$1',
-      '^config(.*)$': '<rootDir>/src/config$1',
+      '^config(.*)$': '<rootDir>/src/config$1',   
     },
-    transformIgnorePatterns: ['<rootDir>/node_modules/'],
+    transformIgnorePatterns: [
+      'node_modules/(?!(react-leaflet/lib|@react-leaflet/core/lib)/)'
+    ],
 }

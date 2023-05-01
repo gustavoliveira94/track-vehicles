@@ -8,6 +8,7 @@ export const Search: React.FC = () => {
   return (
     <Styles.Wrapper>
       <input
+        data-testid="input-search"
         placeholder="Procure um veículo"
         onChange={(e) => setSearchVehicles(e.target.value)}
       />

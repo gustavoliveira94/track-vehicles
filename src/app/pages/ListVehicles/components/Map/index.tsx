@@ -33,6 +33,7 @@ export const Map: React.FC = () => {
         ? vehicles.map(({ coordinates, license_plate }) => {
             return (
               <Marker
+                data-testid="vehicle-marker"
                 key={license_plate}
                 position={[coordinates?.latitude, coordinates?.longitude]}
                 icon={DefaultIcon}
