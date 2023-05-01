@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import { Vehicle } from 'contracts/vehicles';
 import { useCreateVehicle } from 'core/hooks/useCreateVehicle';
-import { validationRegisterForm } from 'core/validation/registerForm';
+import { validationRegisterForm } from 'core/validations/registerForm';
 
 import * as Styles from './styles';
 
@@ -90,6 +90,8 @@ export const Form: React.FC = () => {
             name="status"
             variant="filled"
             label="Status"
+            value={formik.values.status}
+            onChange={formik.handleChange}
             error={formik.touched.status && Boolean(formik.errors.status)}
             helperText={formik.touched.status && formik.errors.status}
           />

@@ -7,7 +7,9 @@ import { useVehicles } from 'core/hooks/useVehicles';
 import * as Styles from './styles';
 
 export const List: React.FC = () => {
-  const { vehicles } = useVehicles();
+  const { vehicles, searchVehicles, isSearching } = useVehicles();
+
+  const mapVehicles = isSearching ? searchVehicles : vehicles;
 
   return (
     <Styles.Wrapper>
@@ -15,9 +17,9 @@ export const List: React.FC = () => {
         <h3>VEÍCULOS</h3>
       </Styles.Title>
       <Styles.List>
-        {vehicles.map(({ identifier, license_plate }) => {
+        {mapVehicles.map(({ identifier, license_plate }) => {
           return (
-            <Styles.Item>
+            <Styles.Item key={license_plate}>
               <Styles.Icon>
                 <FontAwesomeIcon icon={faTruck} size="2x" />
               </Styles.Icon>

@@ -1,4 +1,4 @@
-import { Form } from 'app/components/Form';
+import { Form } from 'app/pages/RegisterVehicles/components/Form';
 
 import * as Styles from './styles';
 
