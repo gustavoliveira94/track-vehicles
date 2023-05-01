@@ -1,4 +1,4 @@
-import { createServer, Model } from "miragejs";
+import { createServer, Model } from 'miragejs';
 
 type Coordinates = {
   latitude: number;
@@ -12,7 +12,7 @@ type Vehicle = {
   coordinates: Coordinates;
 };
 
-export function makeServer({ environment = "test" } = {}) {
+export function makeServer({ environment = 'test' } = {}) {
   return createServer({
     environment,
 
@@ -21,23 +21,23 @@ export function makeServer({ environment = "test" } = {}) {
     },
 
     routes() {
-      this.namespace = "api";
+      this.namespace = 'api';
 
-      this.get("/vehicles", (schema) => {
-        return schema.all("vehicle");
+      this.get('/vehicles', (schema) => {
+        return schema.all('vehicle');
       });
 
-      this.post("/vehicle", (schema, request) => {
+      this.post('/vehicle', (schema, request) => {
         const attrs = JSON.parse(request.requestBody);
-        return schema.create("vehicle", attrs);
+        return schema.create('vehicle', attrs);
       });
     },
 
     seeds(server) {
-      server.create("vehicle", {
-        identifier: "Vehicle 1",
-        license_plate: "AAA-9A99",
-        tracker_serial_number: "A0000000",
+      server.create('vehicle', {
+        identifier: 'Vehicle 1',
+        license_plate: 'AAA-9A99',
+        tracker_serial_number: 'A0000000',
         coordinates: {
           latitude: -25.43247,
           longitude: -49.27845,
