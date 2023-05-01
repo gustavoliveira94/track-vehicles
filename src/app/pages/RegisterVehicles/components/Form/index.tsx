@@ -1,6 +1,5 @@
 import { Button } from '@mui/material';
 import { useFormik } from 'formik';
-import { NavLink } from 'react-router-dom';
 
 import { Vehicle } from 'contracts/vehicles';
 import { useCreateVehicle } from 'core/hooks/useCreateVehicle';
@@ -140,7 +139,6 @@ export const Form: React.FC = () => {
           </Button>
         </Styles.FormWrapper>
       </form>
-      <NavLink to="/list-vehicles">Listagem</NavLink>
     </Styles.Wrapper>
   );
 };
