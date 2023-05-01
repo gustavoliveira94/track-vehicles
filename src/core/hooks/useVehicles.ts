@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import httpClient from 'core/services/httpClient';
 
 import { selectVehicles, setVehicles } from 'core/store/slices/vehicles';
+import { Vehicle } from 'contracts/vehicles';
 
 export const useVehicles = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,9 @@ export const useVehicles = () => {
 
   const getVehicles = async () => {
     try {
-      const { vehicles: vehiclesData } = await httpClient.get('/api/vehicles');
+      const { vehicles: vehiclesData } = await httpClient.get<{
+        vehicles: Vehicle[];
+      }>('/api/vehicles');
 
       return dispatch(setVehicles(vehiclesData));
     } catch (e) {
