@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { icon, Marker as M } from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
@@ -29,9 +30,10 @@ export const Map: React.FC = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {vehicles.length
-        ? vehicles.map(({ coordinates }) => {
+        ? vehicles.map(({ coordinates, license_plate }) => {
             return (
               <Marker
+                key={license_plate}
                 position={[coordinates?.latitude, coordinates?.longitude]}
                 icon={DefaultIcon}
               >

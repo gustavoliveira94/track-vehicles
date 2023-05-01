@@ -7,10 +7,14 @@ import { RootState } from '..';
 
 interface VehiclesState {
   vehicles: Vehicle[];
+  searchVehicles: Vehicle[];
+  isSearching: boolean;
 }
 
 const initialState: VehiclesState = {
   vehicles: [],
+  searchVehicles: [],
+  isSearching: false,
 };
 
 export const vehiclesSlice = createSlice({
@@ -23,11 +27,36 @@ export const vehiclesSlice = createSlice({
         vehicles: action.payload,
       };
     },
+    searchVehicle: (state, action: PayloadAction<string>) => {
+      const search = action.payload;
+
+      if (!search) {
+        return {
+          ...state,
+          isSearching: false,
+          searchVehicles: [],
+        };
+      }
+
+      return {
+        ...state,
+        isSearching: true,
+        searchVehicles: state.vehicles.filter((vehicle) => {
+          return vehicle.identifier
+            .toLowerCase()
+            .includes(search.toLowerCase());
+        }),
+      };
+    },
   },
 });
 
-export const { setVehicles } = vehiclesSlice.actions;
+export const { setVehicles, searchVehicle } = vehiclesSlice.actions;
 
 export const selectVehicles = (state: RootState) => state.vehicles.vehicles;
+export const selectSearchVehicles = (state: RootState) => ({
+  searchVehicles: state.vehicles.searchVehicles,
+  isSearching: state.vehicles.isSearching,
+});
 
 export default vehiclesSlice.reducer;

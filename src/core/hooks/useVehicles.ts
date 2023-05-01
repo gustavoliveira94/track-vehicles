@@ -3,12 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import httpClient from 'core/services/httpClient';
 
-import { selectVehicles, setVehicles } from 'core/store/slices/vehicles';
+import {
+  selectVehicles,
+  setVehicles,
+  selectSearchVehicles,
+} from 'core/store/slices/vehicles';
 import { Vehicle } from 'contracts/vehicles';
 
 export const useVehicles = () => {
   const dispatch = useDispatch();
   const vehicles = useSelector(selectVehicles);
+  const { searchVehicles, isSearching } = useSelector(selectSearchVehicles);
 
   const getVehicles = async () => {
     try {
@@ -28,5 +33,7 @@ export const useVehicles = () => {
 
   return {
     vehicles,
+    searchVehicles,
+    isSearching,
   };
 };
