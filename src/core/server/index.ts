@@ -1,16 +1,6 @@
 import { createServer, Model } from 'miragejs';
 
-type Coordinates = {
-  latitude: number;
-  longitude: number;
-};
-
-type Vehicle = {
-  identifier: string;
-  license_plate: string;
-  tracker_serial_number: string;
-  coordinates: Coordinates;
-};
+import { Vehicle } from 'contracts/vehicles';
 
 export function makeServer({ environment = 'test' } = {}) {
   return createServer({

@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import httpClient from 'core/services/httpClient';
 
+import { selectVehicles, setVehicles } from 'core/store/slices/vehicles';
+
 export const useVehicles = () => {
-  const [vehicles, setVehicles] = useState<any[]>([]);
+  const dispatch = useDispatch();
+  const vehicles = useSelector(selectVehicles);
 
   const getVehicles = async () => {
     try {
       const { vehicles: vehiclesData } = await httpClient.get('/api/vehicles');
 
-      return setVehicles(vehiclesData);
+      return dispatch(setVehicles(vehiclesData));
     } catch (e) {
       return e;
     }
