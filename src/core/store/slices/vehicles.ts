@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { Vehicle } from 'contracts/vehicles';
 
-import { RootState } from '..';
+import { RootState } from 'core/store';
 
 interface VehiclesState {
   vehicles: Vehicle[];
