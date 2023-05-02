@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 
+import { useToast } from 'core/hooks/useToast';
 import { Vehicle } from 'contracts/vehicles';
 import { useCreateVehicle } from 'core/hooks/useCreateVehicle';
 import { validationRegisterForm } from 'core/utils/validations/registerForm';
@@ -15,6 +16,8 @@ import { validationRegisterForm } from 'core/utils/validations/registerForm';
 import * as Styles from './styles';
 
 export const Form: React.FC = () => {
+  const { success, error } = useToast();
+
   const { createVehicle } = useCreateVehicle();
 
   const initialValues: Vehicle = {
@@ -31,8 +34,14 @@ export const Form: React.FC = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: validationRegisterForm,
-    onSubmit: (values) => {
-      createVehicle(values);
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        await createVehicle(values);
+        success({ message: 'Cadastro realizado com sucesso!' });
+        resetForm();
+      } catch (e) {
+        return error({ message: 'Ocorreu um erro ao realizar o cadastro!' });
+      }
     },
   });
 
@@ -95,7 +104,12 @@ export const Form: React.FC = () => {
           />
 
           <FormControl variant="filled" fullWidth>
-            <InputLabel id="status">Status</InputLabel>
+            <InputLabel
+              error={formik.touched.status && Boolean(formik.errors.status)}
+              id="status"
+            >
+              Status
+            </InputLabel>
             <Select
               labelId="status"
               id="status"
