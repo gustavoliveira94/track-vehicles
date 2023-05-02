@@ -120,10 +120,10 @@ export const Form: React.FC = () => {
               onChange={formik.handleChange}
               error={formik.touched.status && Boolean(formik.errors.status)}
             >
-              <MenuItem data-testid="status-value" value="Em funcionamento">
-                Em funcionamento
+              <MenuItem value="Em funcionamento">Em funcionamento</MenuItem>
+              <MenuItem data-testid="status-value" value="Com defeito">
+                Com defeito
               </MenuItem>
-              <MenuItem value="Com defeito">Com defeito</MenuItem>
             </Select>
             {formik.touched.status && (
               <FormHelperText error>{formik.errors.status}</FormHelperText>
