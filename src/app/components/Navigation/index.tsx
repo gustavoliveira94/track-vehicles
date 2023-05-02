@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import { NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faList } from '@fortawesome/free-solid-svg-icons';
@@ -11,20 +12,17 @@ export const Navigation: React.FC = () => {
     switch (pathname) {
       case '/': {
         return (
-          <NavLink to="/register-vehicles">
+          <NavLink to="/register-vehicles" data-testid="add-button">
             <FontAwesomeIcon icon={faPlus} />
           </NavLink>
         );
       }
       case '/register-vehicles': {
         return (
-          <NavLink to="/">
+          <NavLink to="/" data-testid="list-button">
             <FontAwesomeIcon icon={faList} />
           </NavLink>
         );
-      }
-      default: {
-        return null;
       }
     }
   };

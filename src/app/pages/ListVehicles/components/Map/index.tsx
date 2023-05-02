@@ -29,7 +29,7 @@ export const Map: React.FC = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {vehicles.length
-        ? vehicles.map(({ coordinates, license_plate }) => {
+        ? vehicles.map(({ coordinates, license_plate, status }) => {
             return (
               <Marker
                 data-testid="vehicle-marker"
@@ -38,7 +38,7 @@ export const Map: React.FC = () => {
                 icon={DefaultIcon}
               >
                 <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
+                  <b>Status do veículo:</b> {status}
                 </Popup>
               </Marker>
             );
@@ -47,3 +47,5 @@ export const Map: React.FC = () => {
     </MapContainer>
   );
 };
+
+export default Map;

@@ -6,7 +6,7 @@ interface ICalculateDistance {
 }
 
 export const calculateDistance = ({ list }: ICalculateDistance) => {
-  navigator.geolocation.getCurrentPosition((position) => {
+  navigator?.geolocation?.getCurrentPosition((position) => {
     localStorage.setItem('latitude', String(position.coords.latitude));
     localStorage.setItem('longitude', String(position.coords.longitude));
   });

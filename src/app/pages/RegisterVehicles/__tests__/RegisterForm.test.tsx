@@ -2,7 +2,7 @@ import { fireEvent, waitFor } from '@testing-library/react';
 
 import { render } from 'config/tests/helpTester';
 
-import { Form } from 'app/pages/RegisterVehicles/components/Form';
+import { RegisterVehicles } from 'app/pages/RegisterVehicles/';
 
 const createVehicle = jest.fn();
 
@@ -12,9 +12,9 @@ jest.mock('core/hooks/useCreateVehicle', () => ({
   }),
 }));
 
-describe('Testing <Form /> component - RegisterVehicles', () => {
+describe('Testing <RegisterVehicles /> Page', () => {
   it('Should show errors', async () => {
-    const { getByTestId, getAllByText } = render(<Form />);
+    const { getByTestId, getAllByText } = render(<RegisterVehicles />);
 
     const button = getByTestId('button-register');
     fireEvent.click(button);
@@ -26,7 +26,7 @@ describe('Testing <Form /> component - RegisterVehicles', () => {
   });
 
   it('Should not show errors', async () => {
-    const { getByTestId, getByRole } = render(<Form />);
+    const { getByTestId, getByRole } = render(<RegisterVehicles />);
 
     fireEvent.change(
       getByRole('textbox', {

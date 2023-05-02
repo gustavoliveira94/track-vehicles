@@ -111,6 +111,7 @@ export const Form: React.FC = () => {
               Status
             </InputLabel>
             <Select
+              data-testid="status"
               labelId="status"
               id="status"
               label="Status"
@@ -119,7 +120,9 @@ export const Form: React.FC = () => {
               onChange={formik.handleChange}
               error={formik.touched.status && Boolean(formik.errors.status)}
             >
-              <MenuItem value="Em funcionamento">Em funcionamento</MenuItem>
+              <MenuItem data-testid="status-value" value="Em funcionamento">
+                Em funcionamento
+              </MenuItem>
               <MenuItem value="Com defeito">Com defeito</MenuItem>
             </Select>
             {formik.touched.status && (
