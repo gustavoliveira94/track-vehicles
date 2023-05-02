@@ -36,7 +36,9 @@ export const List: React.FC = () => {
             );
           })
         ) : (
-          <Styles.NotFound>Nenhum veículo encontrado!</Styles.NotFound>
+          <Styles.NotFound data-testid="not-found">
+            Nenhum veículo encontrado!
+          </Styles.NotFound>
         )}
       </Styles.List>
     </Styles.Wrapper>
