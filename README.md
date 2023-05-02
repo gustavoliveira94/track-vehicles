@@ -7,7 +7,7 @@ Projeto para listar veículos na listagem e no mapa.
 ## Instalação
 
 1. Baixe e instale o Node: [https://nodejs.org/]
-2. Clone o repositório: `git clone https://github.com/gustavoliveira94/customers.git`
+2. Clone o repositório: `git clone https://github.com/gustavoliveira94/track-vehicles.git`
 3. \[Opcional\] Instale o Yarn globalmente: `npm install -g yarn`
 4. Instale as dependências do projeto: `yarn install` ou `npm install`
 5. Inicie o ambiente de desenvolvimento: `npm start` ou `yarn start`.
