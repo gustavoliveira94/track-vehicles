@@ -39,6 +39,7 @@ export const Form: React.FC = () => {
             <small>Dados do veículo</small>
           </Styles.Divide>
           <Styles.TextField
+            data-testid="identifier"
             id="identifier"
             name="identifier"
             variant="filled"
@@ -52,6 +53,7 @@ export const Form: React.FC = () => {
           />
 
           <Styles.TextField
+            data-testid="license_plate"
             id="license_plate"
             name="license_plate"
             variant="filled"
@@ -68,6 +70,7 @@ export const Form: React.FC = () => {
           />
 
           <Styles.TextField
+            data-testid="tracker_serial_number"
             id="tracker_serial_number"
             name="tracker_serial_number"
             variant="filled"
@@ -85,6 +88,7 @@ export const Form: React.FC = () => {
           />
 
           <Styles.TextField
+            data-testid="status"
             id="status"
             name="status"
             variant="filled"
@@ -101,6 +105,7 @@ export const Form: React.FC = () => {
           </Styles.Divide>
 
           <Styles.TextField
+            data-testid="coordinates.latitude"
             id="coordinates.latitude"
             name="coordinates.latitude"
             variant="filled"
@@ -118,6 +123,7 @@ export const Form: React.FC = () => {
           />
 
           <Styles.TextField
+            data-testid="coordinates.longitude"
             id="coordinates.longitude"
             name="coordinates.longitude"
             variant="filled"
@@ -134,7 +140,12 @@ export const Form: React.FC = () => {
             }
           />
 
-          <Button size="large" variant="contained" type="submit">
+          <Button
+            size="large"
+            variant="contained"
+            type="submit"
+            data-testid="button-register"
+          >
             CADASTRAR
           </Button>
         </Styles.FormWrapper>

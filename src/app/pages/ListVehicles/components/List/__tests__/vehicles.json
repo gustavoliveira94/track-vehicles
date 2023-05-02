@@ -1,0 +1,22 @@
+[
+  {
+    "identifier": "Vehicle 1",
+    "license_plate": "AAA-9A99",
+    "tracker_serial_number": "A0000000",
+    "status": "Com defeito",
+    "coordinates": {
+      "latitude": -25.43247,
+      "longitude": -49.27845
+    }
+  },
+  {
+    "identifier": "Vehicle 2",
+    "license_plate": "AAA-9A94",
+    "tracker_serial_number": "A0000100",
+    "status": "Em funcionamento",
+    "coordinates": {
+      "latitude": -25.43227,
+      "longitude": -49.21845
+    }
+  }
+]

@@ -17,19 +17,21 @@ export const List: React.FC = () => {
         <h3>VEÍCULOS</h3>
       </Styles.Title>
       <Styles.List>
-        {mapVehicles.map(({ identifier, license_plate }) => {
-          return (
-            <Styles.Item key={license_plate}>
-              <Styles.Icon>
-                <FontAwesomeIcon icon={faTruck} size="2x" />
-              </Styles.Icon>
-              <Styles.Infos>
-                <p>{identifier}</p>
-                <p>{license_plate}</p>
-              </Styles.Infos>
-            </Styles.Item>
-          );
-        })}
+        {mapVehicles?.length
+          ? mapVehicles.map(({ identifier, license_plate }) => {
+              return (
+                <Styles.Item key={license_plate} data-testid="vehicle">
+                  <Styles.Icon>
+                    <FontAwesomeIcon icon={faTruck} />
+                  </Styles.Icon>
+                  <Styles.Infos>
+                    <p>{identifier}</p>
+                    <p>{license_plate}</p>
+                  </Styles.Infos>
+                </Styles.Item>
+              );
+            })
+          : null}
       </Styles.List>
     </Styles.Wrapper>
   );

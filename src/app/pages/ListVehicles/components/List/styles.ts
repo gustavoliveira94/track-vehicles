@@ -52,6 +52,10 @@ export const Icon = styled.div`
   background-color: #0035ac;
   margin-right: 20px;
   color: #f9f9f9;
+
+  svg {
+    font-size: 22px;
+  }
 `;
 
 export const Infos = styled.div`

@@ -10,7 +10,6 @@ export default createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%;
     -ms-overflow-style: scrollbar;
   }
 
