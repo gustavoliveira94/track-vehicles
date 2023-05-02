@@ -22,7 +22,7 @@ export const List: React.FC = () => {
               return (
                 <Styles.Item key={license_plate} data-testid="vehicle">
                   <Styles.Icon>
-                    <FontAwesomeIcon icon={faTruck} size="2x" />
+                    <FontAwesomeIcon icon={faTruck} />
                   </Styles.Icon>
                   <Styles.Infos>
                     <p>{identifier}</p>

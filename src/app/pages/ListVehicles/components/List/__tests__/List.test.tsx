@@ -19,7 +19,7 @@ jest.mock('core/hooks/useVehicles', () => ({
   }),
 }));
 
-describe('Testing <List /> Component', () => {
+describe('Testing <List /> Component - ListVehicles', () => {
   vehicles = vehiclesData;
 
   it('Should render vehicles on list', () => {

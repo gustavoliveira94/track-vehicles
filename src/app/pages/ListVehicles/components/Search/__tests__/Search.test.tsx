@@ -4,7 +4,7 @@ import { render } from 'config/tests/helpTester';
 
 import { Search } from 'app/pages/ListVehicles/components/Search';
 
-describe('Testing <Search /> Component', () => {
+describe('Testing <Search /> Component - ListVehicles', () => {
   it('Should write on input search', () => {
     const { getByTestId } = render(<Search />);
 
