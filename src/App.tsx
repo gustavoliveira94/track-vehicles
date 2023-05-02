@@ -1,6 +1,6 @@
 import { Router } from 'app/routes';
 
-import GlobalStyles from 'app/styles';
+import GlobalStyles from 'config/styles';
 
 function App() {
   return (

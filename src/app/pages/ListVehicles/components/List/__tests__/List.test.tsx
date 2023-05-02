@@ -7,9 +7,9 @@ import { Vehicle } from 'contracts/vehicles';
 
 import vehiclesData from './vehicles.json';
 
-let vehicles = [] as unknown as Vehicle[];
+let vehicles = [] as Vehicle[];
 let isSearching = false;
-let searchVehicles = [] as unknown as Vehicle[];
+let searchVehicles = [] as Vehicle[];
 
 jest.mock('core/hooks/useVehicles', () => ({
   useVehicles: () => ({
@@ -20,7 +20,7 @@ jest.mock('core/hooks/useVehicles', () => ({
 }));
 
 describe('Testing <List /> Component - ListVehicles', () => {
-  vehicles = vehiclesData;
+  vehicles = vehiclesData as Vehicle[];
 
   it('Should render vehicles on list', () => {
     const { getAllByTestId } = render(<List />);
@@ -37,9 +37,14 @@ describe('Testing <List /> Component - ListVehicles', () => {
     expect(getAllByTestId('vehicle')).toHaveLength(1);
   });
 
-  it('Should not render vehicles on list', () => {
-    const { findByTestId } = render(<List />);
+  it('Should render vehicle not found', async () => {
+    vehicles = [];
+    isSearching = false;
 
-    waitFor(() => expect(findByTestId('vehicle')).not.toBeInTheDocument());
+    const { getByText } = render(<List />);
+
+    await waitFor(() =>
+      expect(getByText('Nenhum veículo encontrado!')).toBeInTheDocument(),
+    );
   });
 });
