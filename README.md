@@ -31,7 +31,7 @@ Projeto para listar veículos na listagem e no mapa.
 ├─ ├─app/            # Camada de apresentação
 ├─ ├─config/         # Camada de configurações
 ├─ ├─contracts/      # Camada de interfaces e types
-├─ ├─core/           # Camada onde fica as configurações de store, utils, serviços
+├─ ├─core/           # Camada onde ficam as configurações de store, utils, serviços
 ├─ jest.config.js    # Configurações do jest
 ├─ cypress.config.js # Configurações do cypress
 ├─ .editorconfig     # Preferência do editorconfig
