@@ -41,3 +41,8 @@ Projeto para listar veículos na listagem e no mapa.
 ├─ package.json      # Manifesto do projeto
 └─ README.md         # Esse arquivo
 ```
+
+## Observações
+```
+Não foi possível testar o arquivo que contém o mapa, pois o React Testing Library gera erro.
+```
