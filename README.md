@@ -28,7 +28,7 @@ Projeto para listar veículos na listagem e no mapa.
 ```
 /
 ├─ src/              # Aplicação
-├─ ├─app/            # Configurações do projeto
+├─ ├─app/            # Camada de apresentação
 ├─ ├─config/         # Camada de configurações
 ├─ ├─contracts/      # Camada de interfaces e types
 ├─ ├─core/           # Camada onde fica as configurações de store, utils, serviços
