@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 import { store } from 'core/store';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { makeServer } from './core/server';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import 'leaflet/dist/leaflet.css';
 
@@ -21,6 +24,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <ToastContainer />
     </Provider>
   </React.StrictMode>,
 );
