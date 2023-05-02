@@ -20,6 +20,10 @@ export const Wrapper = styled.div`
 
   form {
     width: 100%;
+
+    button {
+      background-color: #0035ac;
+    }
   }
 `;
 
