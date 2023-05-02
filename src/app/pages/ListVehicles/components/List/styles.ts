@@ -42,14 +42,14 @@ export const Item = styled.li`
   }
 `;
 
-export const Icon = styled.div`
+export const Icon = styled.div<{ defect: boolean }>`
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 60px;
   height: 60px;
-  background-color: #0035ac;
+  background-color: ${({ defect }) => (defect ? '#e10000' : '#0035ac')};
   margin-right: 20px;
   color: #f9f9f9;
 
@@ -69,4 +69,8 @@ export const Infos = styled.div`
       margin-top: -5px;
     }
   }
+`;
+
+export const NotFound = styled.p`
+  font-size: 16px;
 `;

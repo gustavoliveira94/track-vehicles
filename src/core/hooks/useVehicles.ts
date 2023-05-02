@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import httpClient from 'core/services/httpClient';
+import { calculateDistance } from 'core/utils/calculateDistance';
 
 import {
   selectVehicles,
@@ -32,8 +33,8 @@ export const useVehicles = () => {
   }, []);
 
   return {
-    vehicles,
-    searchVehicles,
+    vehicles: calculateDistance({ list: vehicles }),
+    searchVehicles: calculateDistance({ list: searchVehicles }),
     isSearching,
   };
 };

@@ -1,9 +1,16 @@
-import { Button } from '@mui/material';
+import {
+  Button,
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+} from '@mui/material';
 import { useFormik } from 'formik';
 
 import { Vehicle } from 'contracts/vehicles';
 import { useCreateVehicle } from 'core/hooks/useCreateVehicle';
-import { validationRegisterForm } from 'core/validations/registerForm';
+import { validationRegisterForm } from 'core/utils/validations/registerForm';
 
 import * as Styles from './styles';
 
@@ -14,7 +21,7 @@ export const Form: React.FC = () => {
     identifier: '',
     license_plate: '',
     tracker_serial_number: '',
-    status: '',
+    status: '' as Vehicle['status'],
     coordinates: {
       latitude: '',
       longitude: '',
@@ -87,17 +94,24 @@ export const Form: React.FC = () => {
             }
           />
 
-          <Styles.TextField
-            data-testid="status"
-            id="status"
-            name="status"
-            variant="filled"
-            label="Status"
-            value={formik.values.status}
-            onChange={formik.handleChange}
-            error={formik.touched.status && Boolean(formik.errors.status)}
-            helperText={formik.touched.status && formik.errors.status}
-          />
+          <FormControl variant="filled" fullWidth>
+            <InputLabel id="status">Status</InputLabel>
+            <Select
+              labelId="status"
+              id="status"
+              label="Status"
+              name="status"
+              value={formik.values.status}
+              onChange={formik.handleChange}
+              error={formik.touched.status && Boolean(formik.errors.status)}
+            >
+              <MenuItem value="Em funcionamento">Em funcionamento</MenuItem>
+              <MenuItem value="Com defeito">Com defeito</MenuItem>
+            </Select>
+            {formik.touched.status && (
+              <FormHelperText error>{formik.errors.status}</FormHelperText>
+            )}
+          </FormControl>
 
           <Styles.Divide>
             <hr />
