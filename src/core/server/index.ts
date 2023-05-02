@@ -26,7 +26,7 @@ export function makeServer({ environment = 'test' } = {}) {
     seeds(server) {
       server.create('vehicle', {
         identifier: 'Vehicle 1',
-        license_plate: 'AAA-9A99',
+        license_plate: 'AAA9A99',
         tracker_serial_number: 'A0000000',
         status: 'Em funcionamento',
         coordinates: {
